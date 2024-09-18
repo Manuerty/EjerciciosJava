@@ -18,6 +18,20 @@ public class Ejercicio2 {
         try (BufferedReader lector = new BufferedReader(new FileReader(String.valueOf(nombreArchivo)))) {
             String linea;
             long timesChar = 0;
+
+            /*try(BufferedReader lector = new BufferedReader(new FileReader(ruta));){
+                int total = 0;
+                String linea;
+                while ((linea = lector.readLine()) != null) {
+                    for (Character c : linea.toCharArray()) {
+                        if (focusCharater == c) {
+                            total++;
+                        }
+                    }
+                }
+                System.out.println("El caracter aparece " + total + " vez/veces");
+            } */
+
             while ((linea = lector.readLine()) != null) {
                 timesChar += linea
                         .chars()
