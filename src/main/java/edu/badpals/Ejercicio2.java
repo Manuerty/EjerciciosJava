@@ -13,12 +13,9 @@ public class Ejercicio2 {
         String nombreArchivo = sc.nextLine();
         System.out.println("Introduce la letra a buscar" );
         String letraBuscada = String.valueOf(sc.nextLine().charAt(0));
-        Path p = Path.of(nombreArchivo);
-        int contador = 0;
         try (BufferedReader lector = new BufferedReader(new FileReader(String.valueOf(nombreArchivo)))) {
             String linea;
             long timesChar = 0;
-
             /*try(BufferedReader lector = new BufferedReader(new FileReader(ruta));){
                 int total = 0;
                 String linea;
@@ -31,7 +28,6 @@ public class Ejercicio2 {
                 }
                 System.out.println("El caracter aparece " + total + " vez/veces");
             } */
-
             while ((linea = lector.readLine()) != null) {
                 timesChar += linea
                         .chars()
@@ -49,6 +45,5 @@ public class Ejercicio2 {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

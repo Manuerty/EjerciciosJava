@@ -14,7 +14,6 @@ public class Ejercicio2V2 {
         Scanner sc = new Scanner(System.in);
         String nombreArchivo = sc.nextLine();
         Path p = Path.of(nombreArchivo);
-
         try (BufferedReader lector = new BufferedReader(new FileReader(String.valueOf(nombreArchivo)))) {
             Map<String, Integer> letterCount = new HashMap<>();
             String linea;
@@ -24,16 +23,13 @@ public class Ejercicio2V2 {
                     letterCount.computeIfPresent(String.valueOf(c),(k,v)-> v+1);
                 }
             }
-
             String mostRepeatedCharacter = "\s";
             int numTimesRepeated = 0 ;
-
             for (Map.Entry<String , Integer> entry : letterCount.entrySet())
                 if (entry.getValue() > numTimesRepeated) {
                     numTimesRepeated = entry.getValue();
                     mostRepeatedCharacter = entry.getKey();
                 }
-
             StringBuilder sb = new StringBuilder();
             sb.append("El caracter más repetido es: ")
                             .append(mostRepeatedCharacter)
@@ -44,7 +40,6 @@ public class Ejercicio2V2 {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
 

@@ -23,7 +23,6 @@ public class Ejercicio3 {
                         .append("3. Descendente case-sensitive")
                         .append('\n')
                         .append("4. Descendente case-insensitive");
-
         System.out.println(ScreenMessage);
         String SelectedMethod = sc.nextLine();
         while (!SelectedMethod.matches("[1-4]")) {
@@ -36,24 +35,17 @@ public class Ejercicio3 {
             List<String> sortedLines = sortLines(lines, SelectedMethod);
             String sortedFileName = newFileName(FileName, SelectedMethod);
             BufferedWriter writer = Files.newBufferedWriter(Paths.get(sortedFileName));
-
             for (String line : sortedLines) {
                 writer.write(line);
                 writer.newLine();
             }
             writer.close();
-
         } catch (IOException e) {
             System.err.println("No se ha realizado la escritura " + e.getMessage());
         }
         catch (IllegalArgumentException e){
             System.err.println("El tipo de ordenación no es válido. ");
         }
-
-
-
-
-
     }
 
     private static List<String> sortLines(List<String> lines, String selectedMethod) throws IllegalArgumentException  {
@@ -72,7 +64,6 @@ public class Ejercicio3 {
                 return lines.stream().sorted(String.CASE_INSENSITIVE_ORDER.reversed()).toList();
             default:
                 throw new IllegalArgumentException("Opción no válida");
-
         }
     }
 
