@@ -14,12 +14,10 @@ public class Ejercicio4 {
         System.out.println("Introduce el nombre del fichero");
         Scanner sc = new Scanner(System.in);
         String FileName = sc.nextLine();
-
         try {
             List<String> lines = Files.readAllLines(Paths.get(FileName));
             String correctAnswers = lines.get(0);
             Map<String, Double> answers = new HashMap<>();
-
             StringBuilder sb = null;
             for (int i = 2; i < lines.size(); i += 2) {
                 String[] line = lines.get(i).split(" ");
@@ -31,13 +29,10 @@ public class Ejercicio4 {
                         score++;
                     } else if (studentAnswers.charAt(j) == ' ') {
                         score += 0;
-
                     } else {
                         score -= 0.5;
                     }
                     answers.put(student, score);
-
-
                 }
             }
             sb = new StringBuilder();
@@ -50,14 +45,10 @@ public class Ejercicio4 {
                         .append(" puntos")
                         .append('\n');
             }
-
             System.out.println(sb.toString());
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
 }
