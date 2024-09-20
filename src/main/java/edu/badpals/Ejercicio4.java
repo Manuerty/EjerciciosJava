@@ -18,19 +18,19 @@ public class Ejercicio4 {
             List<String> lines = Files.readAllLines(Paths.get(FileName));
             String correctAnswers = lines.get(0);
             Map<String, Double> answers = new HashMap<>();
-            StringBuilder sb = null;
+            StringBuilder sb;
             for (int i = 2; i < lines.size(); i += 2) {
-                String[] line = lines.get(i).split(" ");
+                String[] line = lines.get(i).split(" ", 2);
                 String student = line[0];
                 String studentAnswers = line[1];
                 double score = 0;
                 for (int j = 0; j < studentAnswers.length(); j++) {
                     if (studentAnswers.charAt(j) == correctAnswers.charAt(j)) {
-                        score++;
+                        score += 0.5;
                     } else if (studentAnswers.charAt(j) == ' ') {
                         score += 0;
                     } else {
-                        score -= 0.5;
+                        score -= 0.15;
                     }
                     answers.put(student, score);
                 }
@@ -41,7 +41,7 @@ public class Ejercicio4 {
             for (Map.Entry<String, Double> entry : answers.entrySet()) {
                 sb.append(entry.getKey())
                         .append(" ")
-                        .append(entry.getValue())
+                        .append(String.format("%.2f", entry.getValue()))
                         .append(" puntos")
                         .append('\n');
             }
