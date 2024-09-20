@@ -26,10 +26,11 @@ public class Ejercicio5 {
                         cars.put(brand, models);
                     }
             }
-            sortCars(cars);
+            TreeMap<String, List<String>> sortedCars = new TreeMap<>(cars);
+            sortModels(sortedCars);
             String sortedFileName = fileName.replace(".txt", "_sorted.txt");
             BufferedWriter writer = Files.newBufferedWriter(Paths.get(sortedFileName));
-            for (Map.Entry<String, List<String>> entry : cars.entrySet()) {
+            for (Map.Entry<String, List<String>> entry : sortedCars.entrySet()) {
                 writer.write(entry.getKey());
                 writer.write(" ");
                 StringBuilder stringOfModels = new StringBuilder();
@@ -47,7 +48,11 @@ public class Ejercicio5 {
     }
     }
 
-    private static void sortCars(Map<String, List<String>> cars) {
+    private static void sortBrands(Map<String, List<String>> cars) {
+
+    }
+
+    private static void sortModels(Map<String, List<String>> cars) {
         for (Map.Entry<String, List<String>> entry : cars.entrySet()) {
             entry.getValue().sort(Comparator.naturalOrder());
         }
