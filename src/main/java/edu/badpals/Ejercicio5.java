@@ -48,10 +48,6 @@ public class Ejercicio5 {
     }
     }
 
-    private static void sortBrands(Map<String, List<String>> cars) {
-
-    }
-
     private static void sortModels(Map<String, List<String>> cars) {
         for (Map.Entry<String, List<String>> entry : cars.entrySet()) {
             entry.getValue().sort(Comparator.naturalOrder());
